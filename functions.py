@@ -1,19 +1,19 @@
 import json
 
-def json_file_to_mem(file_name):
+def json_file_to_mem(file_name: str) -> list:
     '''Декодирует json файл в переменную-словарь
 
     Принимает аргументом строку с названием файла, открывает,
     декодирует файл с помощью json.load, сохраняет результат словарём в переменную content
     возращает словарь content
     :param file_name: имя файла (str)
-    :return: content (dict)
+    :return: content (list)
     '''
     with open(file_name) as file:
         content = json.load(file)
     return content
 
-def get_student_by_pk(list_, pk):
+def get_student_by_pk(list_: list, pk: int) -> dict | bool:
     '''Ищет студента в списке-словарей по личному номеру
 
     Принимает аргументами список-словарей с данными студентов (list_) и личный номер для поиска (pk),
@@ -30,7 +30,7 @@ def get_student_by_pk(list_, pk):
             return item
     return False
 
-def student_info(student):
+def student_info(student: dict) -> tuple:
     '''Формирует три строки для вывода информации о студенте
 
     Принимает аргументом словарь с данным о студенте, на основе которых формирует три строки:
@@ -45,7 +45,7 @@ def student_info(student):
 
     return name_info, skills_info, learns_info
 
-def get_profession_by_title(list_, title):
+def get_profession_by_title(list_:list, title: str) -> dict | bool:
     '''Ищет словарь с данными о профессии по названию професии в списке-словарей профессий
 
     Принимает аргументами список словарей профессий (list_) и название професии для поиска (title),
@@ -62,7 +62,7 @@ def get_profession_by_title(list_, title):
             return item
     return False
 
-def check_fitness(student, profession):
+def check_fitness(student: dict, profession: dict) -> dict:
     '''Проверяет "пригодность" навыков студента по отношению к требуемым навыкам для профессии
 
     Принимает аргументами словарь с данными о студенте (student) и описание профессии с требованиями к студенту (profession),

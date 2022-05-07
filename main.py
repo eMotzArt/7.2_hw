@@ -19,7 +19,7 @@ def main():
         return
 
     # получаем название профессии для сравнения
-    prof = input(f"Выберите специальность для оценки студента {student['full_name']}: ")
+    prof = input(f"Выберите специальность для оценки студента {student['full_name']}: ").title()
 
     # считываем все профессии
     professions = json_file_to_mem('professions.json')
